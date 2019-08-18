@@ -72,8 +72,9 @@ COPY 2-ros1.sh /tmp/install/
 RUN /tmp/install/2-ros1.sh
 
 # Install dependencies
-#COPY 3-deps.sh /tmp/install/
-#RUN /tmp/install/3-deps.sh
+#ENV TERM linux
+COPY 3-deps.sh /tmp/install/
+RUN /tmp/install/3-deps.sh
 
 # Build and install devel stuff
 #COPY 4-tools.sh /tmp/install/
@@ -95,6 +96,12 @@ ENV \
 
 # Cookie variable for container run environment
 ENV ENV_COOKIE docker-run
+
+# Set the locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 ###########################################
 # Set up user

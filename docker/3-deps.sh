@@ -9,12 +9,15 @@ apt-get update
 # Tools
 ###########################
 
-pip install \
-    opencv-python \
-    pyueye
+apt-get install -y git python3 python3-dev python3-setuptools libtool libffi-dev libssl-dev autoconf automake bison swig libglib2.0-dev portaudio19-dev mpg123 screen flac curl libicu-dev pkg-config libjpeg-dev libfann-dev build-essential jq locales
 
-pip uninstall --yes \
-    enum34
+# git clone https://github.com/MycroftAI/mycroft-core.git /tmp/mycroft --depth=1
+# cd /tmp/mycroft
+# echo '{"use_branch": "master", "auto_update": true}' > .dev_opts.json
+# ./dev_setup.sh --allow-root -sm
+# rm -rf .venv
+# rm -rf /opt/mycroft
+
 
 ###########################
 # Clean up

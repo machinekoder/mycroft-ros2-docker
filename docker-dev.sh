@@ -208,6 +208,7 @@ if ! ${RUNNING}; then
 
     set -x
     exec docker run --rm \
+         --privileged  \
         ${DOCKER_INTERACTIVE} \
         -t \
         --network host \
@@ -219,23 +220,20 @@ if ! ${RUNNING}; then
         -e USER \
         -e TERM \
         -e DISPLAY \
-        --device /dev/snd \
+        -v $HOME:$HOME \
+        -v $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR \
+        -e DBUS_SESSION_BUS_ADDRESS \
         -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
         -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
-		-v /dev/dri:/dev/dri \
-		-v $HOME:$HOME \
-		-v $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR \
-		-e DBUS_SESSION_BUS_ADDRESS \
-		-v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
+        -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
         -v $PWD:$PWD \
-		"${DOCKER_OPTS[@]}" \
-		-w $PWD \
+        "${DOCKER_OPTS[@]}" \
+        -w $PWD \
         -h ${NAME} --name ${NAME} \
         "${DOCKER_DEV_OPTS[@]}" \
         ${LINK_CONTAINER} \
         ${IMAGE} "$@"
-        # add --privileged for hardware device access
 else
     # Container already started:  Exec a new shell in the existing container
     if test -z "$*"; then
