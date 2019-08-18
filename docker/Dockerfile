@@ -64,12 +64,12 @@ RUN apt-get install -y \
 COPY env.sh /tmp/install/
 
 # Update system & install general dependencies
-#COPY 1-system.sh /tmp/install/
-#RUN /tmp/install/1-system.sh
+COPY 1-system.sh /tmp/install/
+RUN /tmp/install/1-system.sh
 
-# Build and install nvidia graphics driver
-#COPY 2-glx.sh /tmp/install/
-#RUN /tmp/install/2-glx.sh
+# Build and install ROS1 bridge
+COPY 2-ros1.sh /tmp/install/
+RUN /tmp/install/2-ros1.sh
 
 # Install dependencies
 #COPY 3-deps.sh /tmp/install/

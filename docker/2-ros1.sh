@@ -5,12 +5,13 @@ WANT_ENV="docker-build docker-run"
 ###########################
 # Update system & install general dependencies
 ###########################
-
+echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 apt-get update
 
 apt-get install -y \
-    iproute2 \
-    pulseaudio
+    ros-dashing-ros1-bridge \
+    ros-dashing-demo-nodes-cpp \
+    ros-dashing-demo-nodes-py
 
 ###########################
 # Clean up
