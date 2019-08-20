@@ -205,6 +205,7 @@ if ! ${RUNNING}; then
     # No existing container; start new one
     C_UID=$(id -u)
     C_GID=$(id -g)
+    TZ=$(cat /etc/timezone)
 
     set -x
     exec docker run --rm \
@@ -214,7 +215,7 @@ if ! ${RUNNING}; then
         --network host \
         -e UID=${C_UID} \
         -e GID=${C_GID} \
-        -e QT_X11_NO_MITSHM=1 \
+        -e TZ=${TZ} \
         -e XDG_RUNTIME_DIR \
         -e HOME \
         -e USER \
