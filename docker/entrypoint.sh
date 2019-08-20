@@ -11,11 +11,21 @@ sed -i '/.*audio.*:/ s/$/,'${USER}'/' /etc/group
 sed -i '/.*pulse.*:/ s/$/,'${USER}'/' /etc/group
 sed -i '/.*pulse-access.*:/ s/$/,'${USER}'/' /etc/group
 
-#source /opt/ros/melodic/setup.bash
-#source /opt/ros/dashing/setup.bash
-
+# source ROS
+echo -e " if [ -z \"\$ROS_INIT\" ];then
+  export ROS_DISTRO=
+  source /opt/ros/melodic/setup.bash
+  export ROS_DISTRO=
+  source /opt/ros/dashing/setup.bash
+  echo 'ROS1/ROS2 ready to use'
+  export ROS_INIT=1
+fi
+" >> /etc/profile.d/ros_activate.sh
 export ROS_IP=127.0.0.1
 export ROS_MASTER_URI=http://127.0.0.1:11311
+
+# remove .dockerenv to make Mycroft start work
+rm /.dockerenv
 
 # Run command as user
 default_cmd=(/bin/bash --login -i)
