@@ -228,6 +228,7 @@ if ! ${RUNNING}; then
         -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
+        -v /opt/mycroft:/opt/mycroft \
         -v $PWD:$PWD \
         "${DOCKER_OPTS[@]}" \
         -w $PWD \
