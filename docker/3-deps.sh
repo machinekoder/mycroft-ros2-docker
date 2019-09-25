@@ -21,6 +21,11 @@ chmod -R 757 /var/log/mycroft/
 # rm -rf .venv
 # rm -rf /opt/mycroft
 
+# required by respeaker mic
+apt-get install -y \
+	usbutils
+pip3 install pysub
+
 
 ###########################
 # Clean up
