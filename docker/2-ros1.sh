@@ -11,7 +11,8 @@ apt-get update
 apt-get install -y \
     ros-dashing-ros1-bridge \
     ros-dashing-demo-nodes-cpp \
-    ros-dashing-demo-nodes-py
+    ros-dashing-demo-nodes-py \
+    ros-dashing-launch-testing-ament-cmake
 
 ###########################
 # Clean up

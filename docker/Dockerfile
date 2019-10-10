@@ -77,8 +77,8 @@ COPY 3-deps.sh /tmp/install/
 RUN /tmp/install/3-deps.sh
 
 # Build and install devel stuff
-#COPY 4-tools.sh /tmp/install/
-#RUN /tmp/install/4-tools.sh
+COPY 4-tools.sh /tmp/install/
+RUN /tmp/install/4-tools.sh
 
 # Final cleanup
 RUN rm -rf /tmp/install
