@@ -8,4 +8,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./build-ros1-msgs.sh
 ./build-ros2-msgs.sh
 ./build-ros1-bridge.sh
-
+./build-ros2-pkgs.sh
