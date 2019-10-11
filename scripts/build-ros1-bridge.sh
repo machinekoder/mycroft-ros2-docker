@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ ! "$BASH_VERSION" ]; then
     echo "Warning: this script should be executed with bash"
     exec /bin/bash "$0"
@@ -17,7 +17,7 @@ source ${ROS2_MSGS_WS_PATH}/install/local_setup.bash
 
 # fetch packages
 mkdir -p ${BRIDGE_WS_PATH}/src
-cp include/ros1_bridge.rosinstall ${BRIDGE_WS_PATH}/src/.rosinstall
+cp include/bridge.rosinstall ${BRIDGE_WS_PATH}/src/.rosinstall
 cd ${BRIDGE_WS_PATH}
 wstool update -t src
 
