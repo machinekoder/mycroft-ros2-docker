@@ -10,3 +10,7 @@
     local-name: jog_msgs
     uri: 'git@github.com:machinekoder/jog_msgs.git'
     version: dashing
+- git:
+    local-name: json_msgs
+    uri: 'git@github.com:machinekoder/json_msgs.git'
+    version: dashing
