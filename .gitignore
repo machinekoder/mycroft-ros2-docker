@@ -1,0 +1,9 @@
+# project specific
+/ws/mycroft-core/
+/ws/skills/
+/ws/ros2_ws/
+
+# Linux
+.directory
+core
+!core/

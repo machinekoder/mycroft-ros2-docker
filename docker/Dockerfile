@@ -67,10 +67,6 @@ COPY env.sh /tmp/install/
 COPY 1-system.sh /tmp/install/
 RUN /tmp/install/1-system.sh
 
-# Build and install ROS1 bridge
-COPY 2-ros1.sh /tmp/install/
-RUN /tmp/install/2-ros1.sh
-
 # Install dependencies
 #ENV TERM linux
 COPY 3-deps.sh /tmp/install/

@@ -7,9 +7,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 source kill_proc.sh
 source paths.sh
 
-set -e
-./start-ros2-ros1-bridge.sh &
-./start-heartbeat.sh &
 set +e
 source ${ROS2_PATH}/setup.bash
 source ${ROS2_WS_PATH}/install/local_setup.bash
@@ -25,6 +22,8 @@ if [ $? -eq 0 ]; then
 fi
 
 set -e -x
+# note: look in mycroft/configuration/locations.py
+#export MYCROFT_SYSTEM_CONFIG="TODO"
 cd ${MYCROFT_PATH}
 ./start-mycroft.sh debug
 

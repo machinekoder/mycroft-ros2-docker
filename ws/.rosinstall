@@ -1,0 +1,12 @@
+- git:
+    local-name: mycroft-core
+    uri: 'https://github.com/MycroftAI/mycroft-core.git'
+    version: master
+- git:
+    local-name: skills/mycroft-robot-control-skill
+    uri: 'git@github.com:machinekoder/mycroft-robot-control-skill.git'
+    version: master
+- git:
+    local-name: ros2_ws/src/respeaker
+    uri: 'git@github.com:machinekoder/respeaker.git'
+    version: master
